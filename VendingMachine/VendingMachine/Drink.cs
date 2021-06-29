@@ -1,6 +1,6 @@
 ﻿namespace VendingMachine
 {
-    public class Drink : VMItem, IConsumable
+    public class Drink : VMItem,IDrink, IConsumable
     {
     }
 }

@@ -9,7 +9,6 @@ namespace VendingMachine
         public IVendingMachineInterface Interface { get; set; }
         public IVendingMachineInventory Inventory { get; set; }
         public IVendingMachineWallet Wallet { get; set; }
-
         public IVendingMachineLogger Logger { get; set; }
 
         public VendingMachine() : this(

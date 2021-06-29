@@ -7,9 +7,9 @@ namespace VendingMachine
     /// </summary>
     public struct Catalogue
     {
-        public List<Drink> DrinkItems { get; set; }
-        public List<Food> FoodItems { get; set; }
-        public List<Weapon> WeaponItems { get; set; }
+        public List<IDrink> DrinkItems { get; set; }
+        public List<IFood> FoodItems { get; set; }
+        public List<IWeapon> WeaponItems { get; set; }
         public int Id { get; set; }
         
     }

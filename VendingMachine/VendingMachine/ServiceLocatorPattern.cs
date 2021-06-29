@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using System.Collections.Generic;
+using Ninject;
 
 namespace VendingMachine
 {
@@ -42,6 +43,7 @@ namespace VendingMachine
                 _kernel.Bind<IVendingMachineWallet>().To<VMWallet>();
                 _kernel.Bind<IVendingMachineInterface>().To<VMInterface>();
                 _kernel.Bind<IVendingMachineLogger>().To<VMLogger>();
+                _kernel.Bind<IDrink>().To<Drink>();
             }
         }
     }

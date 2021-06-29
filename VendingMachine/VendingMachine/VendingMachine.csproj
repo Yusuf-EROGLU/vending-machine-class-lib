@@ -47,11 +47,14 @@
         <Compile Include="Drink.cs" />
         <Compile Include="Food.cs" />
         <Compile Include="IConsumable.cs" />
+        <Compile Include="IDrink.cs" />
+        <Compile Include="IFood.cs" />
         <Compile Include="IVendingMachineLogger.cs" />
         <Compile Include="ItemType.cs" />
         <Compile Include="IVendingMachineInterface.cs" />
         <Compile Include="IVendingMachineInventory.cs" />
         <Compile Include="IVendingMachineWallet.cs" />
+        <Compile Include="IWeapon.cs" />
         <Compile Include="ServiceLocatorPattern.cs" />
         <Compile Include="VMInterface.cs" />
         <Compile Include="VMInventory.cs" />

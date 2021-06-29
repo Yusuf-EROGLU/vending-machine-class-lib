@@ -3,12 +3,29 @@ using System.Collections.Generic;
 
 namespace VendingMachine
 {
-    public class VMInventory :IVendingMachineInventory
+    public class VMInventory : IVendingMachineInventory
     {
-        public List<Drink> DrinkItems { get; set; }
-        public List<Food> FoodItems { get; set; }
-        public List<Weapon> WeaponItems { get; set; }
+        public List<IDrink> DrinkItems { get; set; }
 
+        public List<IFood> FoodItems { get; set; }
+
+        public List<IWeapon> WeaponItems { get; set; }
+
+        public VMInventory() : this(
+            ServiceLocator.Current.Get<List<IDrink>>(),
+            ServiceLocator.Current.Get<List<IFood>>(),
+            ServiceLocator.Current.Get<List<IWeapon>>()
+        )
+        {
+        }
+
+        private VMInventory(List<IDrink> drinkItems, List<IFood> foodItems, List<IWeapon> weaponItems)
+        {
+            DrinkItems = drinkItems;
+            FoodItems = foodItems;
+            WeaponItems = weaponItems;
+        }
+        
         public void SetUpInventory(Catalogue catalogue)
         {
             DrinkItems = catalogue.DrinkItems;
