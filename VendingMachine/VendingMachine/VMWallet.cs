@@ -34,10 +34,12 @@ namespace VendingMachine
         }
 
         public int GetPendingCurrency() => PendingCoins.Sum(x => x.Quantity);
+        public int GetInSafeCurrency() => CoinsInSafe.Sum(x => x.Quantity);
 
         public void SpendCurrency(int quantity)
         {
             //this is a bad vending machine that spends customer's change for Critical Ops premium cases
+            CoinsInSafe.AddRange(PendingCoins);
             PendingCoins = new List<Coin>();
         }
     }

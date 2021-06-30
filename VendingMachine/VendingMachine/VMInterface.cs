@@ -42,18 +42,19 @@ namespace VendingMachine
             {
                 var pendingCurrency = Wallet.GetPendingCurrency();
                 var itemPrice = Inventory.ReturnPrice(itemId);
+                
                 ControlValidTrade(itemId, pendingCurrency, itemPrice);
-
                 Wallet.SpendCurrency(itemPrice);
                 Inventory.TakeOutOfInventory(itemId);
+                Logger.DebugLog("item purchased");
             }
             catch (NotInInventory notInInventory)
             {
-                Logger.DebugLog(notInInventory.Message);
+                Logger.ErrorLog(notInInventory.Message);
             }
             catch (NotEnoughCurrencyException notEnoughCurrencyException)
             {
-                Logger.DebugLog(notEnoughCurrencyException.Message);
+                Logger.ErrorLog(notEnoughCurrencyException.Message);
             }
         }
 

@@ -4,7 +4,12 @@
     {
         public void DebugLog(string message)
         {
-            throw new System.NotImplementedException();
+            
+        }
+
+        public void ErrorLog(string message)
+        {
+          
         }
     }
 }

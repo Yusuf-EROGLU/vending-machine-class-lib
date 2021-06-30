@@ -8,6 +8,7 @@ namespace VendingMachine
         void AddPendingCoin(Coin coin);
         void AddPendingCoin(List<Coin> coins);
         int GetPendingCurrency();
+        int GetInSafeCurrency();
         void SpendCurrency(int quantity);
     }
 }
