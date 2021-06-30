@@ -45,31 +45,31 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Catalogue.cs" />
-        <Compile Include="Coin.cs" />
-        <Compile Include="Drink.cs" />
-        <Compile Include="Food.cs" />
-        <Compile Include="IConsumable.cs" />
-        <Compile Include="IDrink.cs" />
-        <Compile Include="IFood.cs" />
-        <Compile Include="IVendingMachineItem.cs" />
-        <Compile Include="IVendingMachineLogger.cs" />
-        <Compile Include="ItemType.cs" />
-        <Compile Include="IVendingMachineInterface.cs" />
-        <Compile Include="IVendingMachineInventory.cs" />
-        <Compile Include="IVendingMachineWallet.cs" />
-        <Compile Include="IWeapon.cs" />
-        <Compile Include="NotEnoughCurrencyException.cs" />
-        <Compile Include="NotInInventory.cs" />
-        <Compile Include="ServiceLocatorPattern.cs" />
-        <Compile Include="VMInterface.cs" />
-        <Compile Include="VMInventory.cs" />
-        <Compile Include="VMItem.cs" />
-        <Compile Include="VendingMachine.cs" />
+        <Compile Include="Classes\Catalogue.cs" />
+        <Compile Include="Classes\Coin.cs" />
+        <Compile Include="Classes\Drink.cs" />
+        <Compile Include="Classes\Food.cs" />
+        <Compile Include="Classes\ServiceLocatorPattern.cs" />
+        <Compile Include="Classes\VendingMachine.cs" />
+        <Compile Include="Classes\VMInterface.cs" />
+        <Compile Include="Classes\VMInventory.cs" />
+        <Compile Include="Classes\VMItem.cs" />
+        <Compile Include="Classes\VMLogger.cs" />
+        <Compile Include="Classes\VMWallet.cs" />
+        <Compile Include="Classes\Weapon.cs" />
+        <Compile Include="Enums\ItemType.cs" />
+        <Compile Include="Exceptions\NotEnoughCurrencyException.cs" />
+        <Compile Include="Exceptions\NotInInventory.cs" />
+        <Compile Include="Interfaces\IConsumable.cs" />
+        <Compile Include="Interfaces\IDrink.cs" />
+        <Compile Include="Interfaces\IFood.cs" />
+        <Compile Include="Interfaces\IVendingMachineInterface.cs" />
+        <Compile Include="Interfaces\IVendingMachineInventory.cs" />
+        <Compile Include="Interfaces\IVendingMachineItem.cs" />
+        <Compile Include="Interfaces\IVendingMachineLogger.cs" />
+        <Compile Include="Interfaces\IVendingMachineWallet.cs" />
+        <Compile Include="Interfaces\IWeapon.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="VMLogger.cs" />
-        <Compile Include="VMWallet.cs" />
-        <Compile Include="Weapon.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
