@@ -28,11 +28,11 @@ namespace VendingMachine
             Logger = logger;
         }
 
-        public void SetupVendingMachine(Catalogue catalogue, List<Coin> initialCurrency)
+        public void SetupVendingMachine(Catalogue catalogue, List<Coin> initialInSafeCoins=null)
         {
             CurrentCatalogueId = catalogue.Id;
             Inventory.SetUpInventory(catalogue);
-            Wallet.SetCurrency(initialCurrency);
+            Wallet.SetCurrency(initialInSafeCoins);
         }
 
         public void Refill(VMItem item)

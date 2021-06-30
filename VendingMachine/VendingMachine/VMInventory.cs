@@ -25,11 +25,11 @@ namespace VendingMachine
         }
 
 
-        public VMInventory() : this(
+        public VMInventory()  /*:this(
             ServiceLocator.Current.Get<List<IDrink>>(),
             ServiceLocator.Current.Get<List<IFood>>(),
             ServiceLocator.Current.Get<List<IWeapon>>()
-        )
+        )*/
         {
         }
 

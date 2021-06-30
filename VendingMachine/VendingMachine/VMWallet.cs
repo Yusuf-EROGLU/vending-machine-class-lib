@@ -8,7 +8,10 @@ namespace VendingMachine
         public List<Coin> CoinsInSafe;
         public List<Coin> PendingCoins;
 
-        public VMWallet() : this(new List<Coin>(), new List<Coin>())
+        private IVendingMachineLogger Logger { get; set; }
+
+        public VMWallet() : this(new List<Coin>(), new List<Coin>(),
+            ServiceLocator.Current.Get<IVendingMachineLogger>())
         {
         }
 
@@ -18,8 +21,23 @@ namespace VendingMachine
             PendingCoins = pendingCoins;
         }
 
+        public VMWallet(List<Coin> coinsInSafe, List<Coin> pendingCoins, IVendingMachineLogger logger)
+        {
+            CoinsInSafe = coinsInSafe;
+            PendingCoins = pendingCoins;
+            Logger = logger;
+        }
+
         public void SetCurrency(List<Coin> initialCurrency)
         {
+            if (initialCurrency == null)
+            {
+                Logger.DebugLog("Wallet Initialize With no Coin");
+                return;
+            }
+
+            var currency = initialCurrency.Sum(x => x.Quantity);
+            Logger.DebugLog("Wallet Initialize With" + currency + "Coin");
             CoinsInSafe.AddRange(initialCurrency);
         }
 
