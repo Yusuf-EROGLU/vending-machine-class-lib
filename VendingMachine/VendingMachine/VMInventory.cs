@@ -25,11 +25,11 @@ namespace VendingMachine
         }
 
 
-        public VMInventory()  /*:this(
+        public VMInventory()  :this(
             ServiceLocator.Current.Get<List<IDrink>>(),
             ServiceLocator.Current.Get<List<IFood>>(),
             ServiceLocator.Current.Get<List<IWeapon>>()
-        )*/
+        )
         {
         }
 
@@ -72,9 +72,10 @@ namespace VendingMachine
         }
 
         public bool IsInInventory(int itemId) => MasterItemList.Exists(x => x.Id == itemId);
+        public IVendingMachineItem ReturnItem(int itemId) => MasterItemList.FirstOrDefault(x => x.Id == itemId);
 
 
-        public int ReturnPrice(int itemId)
+           public int ReturnPrice(int itemId)
         {
             return MasterItemList.FirstOrDefault(x=> x.Id == itemId).Price;
         }

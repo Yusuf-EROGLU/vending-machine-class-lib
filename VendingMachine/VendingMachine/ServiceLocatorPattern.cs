@@ -43,9 +43,9 @@ namespace VendingMachine
                 _kernel.Bind<IVendingMachineWallet>().To<VMWallet>().InSingletonScope();
                 _kernel.Bind<IVendingMachineInterface>().To<VMInterface>().InSingletonScope();
                 _kernel.Bind<IVendingMachineLogger>().To<VMLogger>().InSingletonScope();
-                /*_kernel.Bind<IDrink>().To<Drink>();
+                _kernel.Bind<IDrink>().To<Drink>();
                 _kernel.Bind<IFood>().To<Food>();
-                _kernel.Bind<IWeapon>().To<Weapon>();*/
+                _kernel.Bind<IWeapon>().To<Weapon>();
             }
         }
     }

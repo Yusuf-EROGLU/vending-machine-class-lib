@@ -25,8 +25,28 @@ namespace VendingMachine.Tests
         public void SetupVendingMachine_SetupWithCatalogue_ReturnsTrueCatalogueId()
         {
             _vendingMachine.SetupVendingMachine(_catalogue1);
-            Assert.AreEqual(_vendingMachine.CurrentCatalogueId,_catalogue1.Id);
+            Assert.AreEqual(_vendingMachine.CurrentCatalogueId, _catalogue1.Id);
         }
+
+        [Test]
+        public void RefillVendingMachine_WithSingleItem_AddItemToInventory()
+        {
+            _vendingMachine.Refill(new Drink(5, "coke", 5, 15));
+            Assert.True(_vendingMachine.Inventory.IsInInventory(5));
+        }
+
+        public void RefillVendingMachine_WithListOfItems_AddItemsToInventory()
+        {
+            List<VMItem> items = new List<VMItem>();
+            var item1 = new Drink(5, "coke", 5, 15);
+            var item2 = new Weapon(6, "diggle", 150, 2);
+            items.Add(item1);
+            items.Add(item2);
+            _vendingMachine.Refill(items);
+            Assert.True(_vendingMachine.Inventory.IsInInventory(5));
+            Assert.Equals(item2, _vendingMachine.Inventory.ReturnItem(item2.Id));
+        }
+
 
         private void InitializeItems()
         {
