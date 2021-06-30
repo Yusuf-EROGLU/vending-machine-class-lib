@@ -1,6 +1,6 @@
 ﻿namespace VendingMachine
 {
-    public interface IFood
+    public interface IFood:IVendingMachineItem
     {
         
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace VendingMachine
 {
@@ -10,6 +11,19 @@ namespace VendingMachine
         public List<IFood> FoodItems { get; set; }
 
         public List<IWeapon> WeaponItems { get; set; }
+
+        public List<IVendingMachineItem> MasterItemList
+        {
+            get
+            {
+                var masterList = new List<IVendingMachineItem>();
+                masterList.AddRange(DrinkItems);
+                masterList.AddRange(FoodItems);
+                masterList.AddRange(WeaponItems);
+                return masterList;
+            }
+        }
+
 
         public VMInventory() : this(
             ServiceLocator.Current.Get<List<IDrink>>(),
@@ -25,7 +39,7 @@ namespace VendingMachine
             FoodItems = foodItems;
             WeaponItems = weaponItems;
         }
-        
+
         public void SetUpInventory(Catalogue catalogue)
         {
             DrinkItems = catalogue.DrinkItems;
@@ -54,6 +68,32 @@ namespace VendingMachine
             foreach (var item in items)
             {
                 AddItem(item);
+            }
+        }
+
+        public bool IsInInventory(int itemId) => MasterItemList.Exists(x => x.Id == itemId);
+
+
+        public int ReturnPrice(int itemId)
+        {
+            return MasterItemList.FirstOrDefault(x=> x.Id == itemId).Price;
+        }
+
+        public void TakeOutOfInventory(int itemId)
+        {
+            var itemType = MasterItemList.FirstOrDefault(x=> x.Id == itemId).Type;
+
+            switch (itemType)
+            {
+                case ItemType.Drink:
+                    DrinkItems.FirstOrDefault(x => x.Id.Equals(itemId) && x.Stock > 0).Stock--;
+                    break;
+                case ItemType.Food:
+                    FoodItems.FirstOrDefault(x => x.Id.Equals(itemId) && x.Stock > 0).Stock--;
+                    break;
+                case ItemType.Weapon:
+                    WeaponItems.FirstOrDefault(x => x.Id.Equals(itemId) && x.Stock > 0).Stock--;
+                    break;
             }
         }
     }

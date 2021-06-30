@@ -1,6 +1,6 @@
 ﻿namespace VendingMachine
 {
-    public abstract class VMItem
+    public abstract class VMItem 
     {
         public ItemType Type { get; set; }
         public int Id { get; set; }

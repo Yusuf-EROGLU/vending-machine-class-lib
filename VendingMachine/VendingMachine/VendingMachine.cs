@@ -19,7 +19,7 @@ namespace VendingMachine
         {
         }
 
-        public VendingMachine(IVendingMachineInventory inventory, IVendingMachineWallet wallet,
+        private VendingMachine(IVendingMachineInventory inventory, IVendingMachineWallet wallet,
             IVendingMachineInterface vmInterface, IVendingMachineLogger logger)
         {
             Interface = vmInterface;
@@ -35,11 +35,6 @@ namespace VendingMachine
             Wallet.SetCurrency(initialCurrency);
         }
 
-        public void OpenInterface()
-        {
-            Interface.InitializeInterface();
-        }
-
         public void Refill(VMItem item)
         {
             Inventory.AddItem(item);
@@ -49,5 +44,6 @@ namespace VendingMachine
         {
             Inventory.AddItem(items);
         }
+        
     }
 }

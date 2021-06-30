@@ -49,12 +49,15 @@
         <Compile Include="IConsumable.cs" />
         <Compile Include="IDrink.cs" />
         <Compile Include="IFood.cs" />
+        <Compile Include="IVendingMachineItem.cs" />
         <Compile Include="IVendingMachineLogger.cs" />
         <Compile Include="ItemType.cs" />
         <Compile Include="IVendingMachineInterface.cs" />
         <Compile Include="IVendingMachineInventory.cs" />
         <Compile Include="IVendingMachineWallet.cs" />
         <Compile Include="IWeapon.cs" />
+        <Compile Include="NotEnoughCurrencyException.cs" />
+        <Compile Include="NotInInventory.cs" />
         <Compile Include="ServiceLocatorPattern.cs" />
         <Compile Include="VMInterface.cs" />
         <Compile Include="VMInventory.cs" />
