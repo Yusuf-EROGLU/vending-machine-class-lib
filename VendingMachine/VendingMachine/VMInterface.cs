@@ -42,6 +42,7 @@ namespace VendingMachine
         public void InsertCoin(Coin coin)
         {
             Wallet.AddPendingCoin(coin);
+            Logger.DebugLog("Coin Inserted");
         }
 
         public void InsertCoin(List<Coin> coins)

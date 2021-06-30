@@ -43,6 +43,7 @@ namespace VendingMachine
 
         public void AddPendingCoin(Coin coin)
         {
+           
             PendingCoins.Add(coin);
         }
 
