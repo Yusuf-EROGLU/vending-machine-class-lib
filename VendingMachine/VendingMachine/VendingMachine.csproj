@@ -32,6 +32,9 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+          <HintPath>C:\Program Files\JetBrains\JetBrains Rider 2020.1.4\lib\ReSharperHost\nunit3\Castle.Core.dll</HintPath>
+        </Reference>
         <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
           <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
           <Private>True</Private>

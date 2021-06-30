@@ -10,5 +10,7 @@ namespace VendingMachine
         int GetPendingCurrency();
         int GetInSafeCurrency();
         void SpendCurrency(int quantity);
+        List<Coin> PendingCoins { get; set; }
+        List<Coin> CoinsInSafe { get; set; }
     }
 }

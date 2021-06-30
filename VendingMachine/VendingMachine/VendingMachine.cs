@@ -17,6 +17,9 @@ namespace VendingMachine
             ServiceLocator.Current.Get<IVendingMachineInterface>(),
             ServiceLocator.Current.Get<IVendingMachineLogger>())
         {
+            Interface.SetInventory(Inventory);
+            Interface.SetWallet(Wallet);
+            Interface.SetLogger(Logger);
         }
 
         private VendingMachine(IVendingMachineInventory inventory, IVendingMachineWallet wallet,

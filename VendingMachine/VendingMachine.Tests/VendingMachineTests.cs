@@ -35,6 +35,7 @@ namespace VendingMachine.Tests
             Assert.True(_vendingMachine.Inventory.IsInInventory(5));
         }
 
+        [Test]
         public void RefillVendingMachine_WithListOfItems_AddItemsToInventory()
         {
             List<VMItem> items = new List<VMItem>();
@@ -44,9 +45,8 @@ namespace VendingMachine.Tests
             items.Add(item2);
             _vendingMachine.Refill(items);
             Assert.True(_vendingMachine.Inventory.IsInInventory(5));
-            Assert.Equals(item2, _vendingMachine.Inventory.ReturnItem(item2.Id));
+            Assert.True(_vendingMachine.Inventory.IsInInventory(6));
         }
-
 
         private void InitializeItems()
         {

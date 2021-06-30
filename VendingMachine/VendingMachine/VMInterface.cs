@@ -10,22 +10,35 @@ namespace VendingMachine
 
         public IVendingMachineLogger Logger { get; set; }
 
-        public VMInterface() : this(
+        public VMInterface()/* : this(
             ServiceLocator.Current.Get<IVendingMachineInventory>(),
             ServiceLocator.Current.Get<IVendingMachineWallet>(),
-            ServiceLocator.Current.Get<IVendingMachineLogger>()
-        )
+            ServiceLocator.Current.Get<IVendingMachineLogger>())*/
         {
         }
 
-        private VMInterface(IVendingMachineInventory ınventory, IVendingMachineWallet wallet,
+        private VMInterface(IVendingMachineInventory inventory, IVendingMachineWallet wallet,
             IVendingMachineLogger logger)
         {
-            Inventory = ınventory;
+            Inventory = inventory;
             Wallet = wallet;
             Logger = logger;
         }
 
+        public void SetWallet(IVendingMachineWallet wallet)
+        {
+            Wallet = wallet;
+        }
+        public void SetInventory(IVendingMachineInventory inventory)
+        {
+            Inventory = inventory;
+        }
+
+        public void SetLogger(IVendingMachineLogger logger)
+        {
+            Logger = logger;
+        }
+        
         public void InsertCoin(Coin coin)
         {
             Wallet.AddPendingCoin(coin);
@@ -42,7 +55,7 @@ namespace VendingMachine
             {
                 var pendingCurrency = Wallet.GetPendingCurrency();
                 var itemPrice = Inventory.ReturnPrice(itemId);
-                
+
                 ControlValidTrade(itemId, pendingCurrency, itemPrice);
                 Wallet.SpendCurrency(itemPrice);
                 Inventory.TakeOutOfInventory(itemId);
@@ -51,10 +64,12 @@ namespace VendingMachine
             catch (NotInInventory notInInventory)
             {
                 Logger.ErrorLog(notInInventory.Message);
+                throw;
             }
             catch (NotEnoughCurrencyException notEnoughCurrencyException)
             {
                 Logger.ErrorLog(notEnoughCurrencyException.Message);
+                throw;
             }
         }
 
@@ -65,6 +80,5 @@ namespace VendingMachine
             if (pendingCurrency < itemPrice)
                 throw new NotEnoughCurrencyException("not enough currency");
         }
-        
     }
 }

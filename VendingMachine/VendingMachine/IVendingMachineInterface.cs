@@ -9,6 +9,9 @@ namespace VendingMachine
         void InsertCoin(List<Coin> coin);
 
         void BuyItem(int itemId);
+        void SetWallet(IVendingMachineWallet wallet);
+        void SetInventory(IVendingMachineInventory inventory);
+        void SetLogger(IVendingMachineLogger logger);
 
     }
 }

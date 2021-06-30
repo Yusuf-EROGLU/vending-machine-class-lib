@@ -39,10 +39,10 @@ namespace VendingMachine
 
             private void LoadBindings()
             {
-                _kernel.Bind<IVendingMachineInventory>().To<VMInventory>().InSingletonScope();
-                _kernel.Bind<IVendingMachineWallet>().To<VMWallet>().InSingletonScope();
-                _kernel.Bind<IVendingMachineInterface>().To<VMInterface>().InSingletonScope();
-                _kernel.Bind<IVendingMachineLogger>().To<VMLogger>().InSingletonScope();
+                _kernel.Bind<IVendingMachineInventory>().To<VMInventory>()/*.InSingletonScope()*/;
+                _kernel.Bind<IVendingMachineWallet>().To<VMWallet>()/*.InSingletonScope()*/;
+                _kernel.Bind<IVendingMachineInterface>().To<VMInterface>()/*.InSingletonScope()*/;
+                _kernel.Bind<IVendingMachineLogger>().To<VMLogger>()/*.InSingletonScope()*/;
                 _kernel.Bind<IDrink>().To<Drink>();
                 _kernel.Bind<IFood>().To<Food>();
                 _kernel.Bind<IWeapon>().To<Weapon>();

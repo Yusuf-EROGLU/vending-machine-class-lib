@@ -5,8 +5,8 @@ namespace VendingMachine
 {
     public class VMWallet : IVendingMachineWallet
     {
-        public List<Coin> CoinsInSafe;
-        public List<Coin> PendingCoins;
+        public List<Coin> CoinsInSafe{ get; set; }
+        public List<Coin> PendingCoins { get; set; }
 
         private IVendingMachineLogger Logger { get; set; }
 
@@ -60,5 +60,7 @@ namespace VendingMachine
             CoinsInSafe.AddRange(PendingCoins);
             PendingCoins = new List<Coin>();
         }
+
+        
     }
 }
