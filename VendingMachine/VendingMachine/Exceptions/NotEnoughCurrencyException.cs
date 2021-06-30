@@ -11,7 +11,6 @@ namespace VendingMachine
 
         public NotEnoughCurrencyException(String message)
             : base(message)
-
         {
         }
 
