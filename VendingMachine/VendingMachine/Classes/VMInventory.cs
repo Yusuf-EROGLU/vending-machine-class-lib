@@ -77,10 +77,8 @@ namespace VendingMachine
 
         public int ReturnPrice(int itemId)
         {
-          
-                if (!IsInInventory(itemId))
-                    throw new NotInInventory("item not in inventory");
-            
+            if (!IsInInventory(itemId))
+                throw new NotInInventory("item not in inventory");
             return MasterItemList.FirstOrDefault(x => x.Id == itemId).Price;
         }
 
